@@ -2,17 +2,14 @@
 using FilmesAPi.Data.Dtos;
 using FilmesAPi.Models;
 
-namespace FilmesAPi.Profiles
+namespace FilmesAPi.Profiles;
 
+public class CinemaProfiles : Profile
 {
-    public class CinemaProfiles : Profile
+    public CinemaProfiles()
     {
-        public CinemaProfiles()
-        {
-            CreateMap<CreateCinemaDto, Cinema>();
-            CreateMap<UpdateCinemaDto, Cinema>();
-            CreateMap<Cinema, UpdateCinemaDto>();
-            CreateMap<Cinema, ReadCinemaDto>();
-        }
+        CreateMap<CreateCinemaDto, Cinema>();
+        CreateMap<UpdateCinemaDto, Cinema>();
+        CreateMap<Cinema, ReadCinemaDto>();
     }
 }

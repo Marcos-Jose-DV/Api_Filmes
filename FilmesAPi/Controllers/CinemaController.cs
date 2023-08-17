@@ -23,7 +23,7 @@ public class CinemaController : ControllerBase
     public IActionResult AddCiname([FromBody] CreateCinemaDto cinemaDto)
     {
         Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
-        _context.Add(cinema);
+        _context.Cinemas.Add(cinema);
         _context.SaveChanges();
         return CreatedAtAction(nameof(RecuperaCinemaPorId), new { Id = cinema.Id }, cinemaDto);
 
@@ -69,9 +69,8 @@ public class CinemaController : ControllerBase
         if (cinema == null)
         {
             return NotFound();
-
         }
-        _context.Remove(cinema);
+        _context.Cinemas.Remove(cinema);
         _context.SaveChanges();
         return NoContent();
     }
